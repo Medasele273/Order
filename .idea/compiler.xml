@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="order-component-test-unit" />
+        <module name="order-component-dao" />
+        <module name="order-component-mapper" />
+        <module name="order-component-service-impl" />
+        <module name="order-component-mirror" />
+        <module name="order-component-entity" />
+        <module name="order-component-test-integration" />
+        <module name="order-component-test-common" />
+        <module name="order-component-service" />
+        <module name="order-component-pu-mirror" />
+        <module name="order-component-domain" />
+        <module name="order-component-dao-impl" />
+        <module name="order-component-client" />
+        <module name="order-component-pu" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
