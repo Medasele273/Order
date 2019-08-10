@@ -1,29 +1,46 @@
 package se.lexicon.order.component.domain;
 
+import com.so4it.annotation.Allowed;
 import com.so4it.common.domain.DomainClass;
 import com.so4it.common.util.object.Required;
 import com.so4it.common.util.object.ValueObject;
+import org.javamoney.moneta.Money;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.Instant;
 
 @DomainClass
 public class Order extends ValueObject implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Allowed(types={Allowed.Type.NULLABLE})
     private String id;
     private String ssn;
     private BigDecimal amount;
+    private Instant insertionTimestamp;
+    private String instrument;
+    private Integer noOfItems;
+    private Money minMaxValue;
+    private Side side;
+    @Allowed(types = {Allowed.Type.NULLABLE})
+    private OrderBooks orderBooks;
 
     private Order(){
 
     }
 
     private Order(Builder builder){
-        this.id= Required.notNull(builder.id,"id");
+        this.id= builder.id;
         this.ssn= Required.notNull(builder.ssn,"ssn");
         this.amount= Required.notNull(builder.amount,"amount");
+        this.insertionTimestamp=Required.notNull(builder.insertionTimestamp,"insertionTimestamp");
+        this.instrument=Required.notNull(builder.instrument,"instrument");
+        this.noOfItems=Required.notNull(builder.noOfItems,"noOfItems");
+        this.minMaxValue=Required.notNull(builder.minMaxValue,"minMaxValue");
+        this.side=Required.notNull(builder.side,"side");
+        this.orderBooks=builder.orderBooks;
     }
 
 
@@ -32,18 +49,44 @@ public class Order extends ValueObject implements Serializable {
         return id;
     }
 
-    private String getSsn(){
+    public String getSsn(){
         return ssn;
     }
 
-    private BigDecimal getAmount(){
+    public BigDecimal getAmount(){
         return amount;
 
     }
 
+    public Instant getInsertionTimestamp(){
+        return insertionTimestamp;
+    }
+
+    public String getInstrument(){
+        return instrument;
+    }
+
+    public Integer getNoOfItems(){
+        return noOfItems;
+    }
+
+    public Money getMinMaxValue(){
+        return minMaxValue;
+    }
+
+    public Side getSide(){
+        return side;
+    }
+
+    public OrderBooks getOrderBooks(){
+        return orderBooks;
+    }
+
+
+
     @Override
     protected Object[] getIdFields() {
-        return new Object[]{id,ssn,amount};
+        return new Object[]{id,ssn,amount,insertionTimestamp,instrument,noOfItems,minMaxValue,orderBooks,side};
     }
 
     public static Builder builder(){
@@ -57,6 +100,20 @@ public class Order extends ValueObject implements Serializable {
         private String ssn;
 
         private BigDecimal amount;
+
+        private String instrument;
+
+        private Instant insertionTimestamp;
+
+        private Money minMaxValue;
+
+        private Side side;
+
+        private OrderBooks orderBooks;
+
+        private Integer noOfItems;
+
+
 
         public Builder withId(String id){
             this.id=id;
@@ -72,6 +129,37 @@ public class Order extends ValueObject implements Serializable {
             this.amount=amount;
             return this;
         }
+
+        public Builder withInstrument(String instrument){
+            this.instrument=instrument;
+            return this;
+        }
+
+        public Builder withNoOfItems(Integer noOfItems){
+            this.noOfItems=noOfItems;
+            return this;
+        }
+
+        public Builder withMinMaxValue(Money minMaxValue){
+            this.minMaxValue=minMaxValue;
+            return this;
+        }
+
+        public Builder withSide(Side side){
+            this.side=side;
+            return this;
+        }
+
+        public Builder withOrderBooks(OrderBooks orderBooks){
+            this.orderBooks=orderBooks;
+            return this;
+        }
+
+        public Builder withInsertionTimestamp(Instant insertionTimestamp){
+            this.insertionTimestamp=insertionTimestamp;
+            return this;
+        }
+
 
         @Override
         public Order build(){
