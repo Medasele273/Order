@@ -4,8 +4,6 @@ import com.so4it.annotation.Allowed;
 import com.so4it.common.domain.DomainClass;
 import com.so4it.common.util.object.Required;
 import com.so4it.common.util.object.ValueObject;
-import org.javamoney.moneta.Money;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
