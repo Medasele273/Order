@@ -15,6 +15,7 @@ public class Order extends ValueObject implements Serializable {
 
     @Allowed(types={Allowed.Type.NULLABLE})
     private String id;
+
     private String ssn;
     private BigDecimal amount;
     private Instant insertionTimestamp;
@@ -22,6 +23,7 @@ public class Order extends ValueObject implements Serializable {
     private Integer noOfItems;
     private Money minMaxValue;
     private Side side;
+
     @Allowed(types = {Allowed.Type.NULLABLE})
     private OrderBooks orderBooks;
 
@@ -92,6 +94,7 @@ public class Order extends ValueObject implements Serializable {
     }
 
     public static class Builder implements com.so4it.common.builder.Builder<Order>{
+
 
         private String id;
 

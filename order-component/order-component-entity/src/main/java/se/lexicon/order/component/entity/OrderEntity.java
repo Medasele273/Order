@@ -4,6 +4,8 @@ import com.gigaspaces.annotation.pojo.SpaceClass;
 import com.gigaspaces.annotation.pojo.SpaceId;
 import com.gigaspaces.annotation.pojo.SpaceRouting;
 import com.so4it.annotation.Allowed;
+import com.so4it.common.util.object.Required;
+import com.so4it.component.entity.AbstractEntityBuilder;
 import com.so4it.component.entity.IdEntity;
 import se.lexicon.order.component.domain.Money;
 import se.lexicon.order.component.domain.Side;
@@ -28,7 +30,20 @@ public class OrderEntity extends IdEntity<String> {
     private Integer noOfItemsToMatch;
     private Boolean allItemsMatched;
 
-    public OrderEntity(){
+    private OrderEntity(){
+
+    }
+
+    private OrderEntity(Builder builder){
+        this.id=builder.id;
+        this.ssn= Required.notNull(builder.ssn,"ssn",builder.isTemplate());
+        this.amount= Required.notNull(builder.amount,"amount",builder.isTemplate());
+        this.instrument= Required.notNull(builder.instrument,"instrument",builder.isTemplate());
+        this.minMaxValue= Required.notNull(builder.minMaxValue,"minMaxValue",builder.isTemplate());
+        this.insertionTimestamp= Required.notNull(builder.insertionTimestamp,"insertionTimestamp",builder.isTemplate());
+        this.side= Required.notNull(builder.side,"side",builder.isTemplate());
+        this.noOfItemsToMatch= Required.notNull(builder.noOfItemsToMatch,"noOfItemsToMatch",builder.isTemplate());
+        this.allItemsMatched= Required.notNull(builder.allItemsMatched,"allItemsMatched",builder.isTemplate());
 
     }
 
@@ -112,4 +127,72 @@ public class OrderEntity extends IdEntity<String> {
     public static Builder templateBuilder(){
         return new Builder(true);
     }
+
+    public static class Builder extends AbstractEntityBuilder<OrderEntity>{
+
+        private String id;
+        private String ssn;
+        private BigDecimal amount;
+        private String instrument;
+        private Money minMaxValue;
+        private Instant insertionTimestamp;
+        private Side side;
+        private Integer noOfItemsToMatch;
+        private Boolean allItemsMatched;
+
+        public Builder(boolean template){
+            super(template);
+        }
+
+        public OrderEntity.Builder withId(String id){
+            this.id=id;
+            return this;
+        }
+
+        public OrderEntity.Builder withSsn(String ssn){
+            this.ssn=ssn;
+            return this;
+        }
+
+        public OrderEntity.Builder withAmount(BigDecimal amount){
+            this.amount=amount;
+            return this;
+        }
+
+        public OrderEntity.Builder withInstrument(String instrument){
+            this.instrument=instrument;
+            return this;
+        }
+
+        public OrderEntity.Builder withSide(Side side){
+            this.side=side;
+            return this;
+        }
+
+        public OrderEntity.Builder withInsertionTimestamp(Instant insertionTimestamp){
+            this.insertionTimestamp=insertionTimestamp;
+            return this;
+        }
+
+        public OrderEntity.Builder withMinMaxValue(Money minMaxValue){
+            this.minMaxValue=minMaxValue;
+            return this;
+        }
+
+        public OrderEntity.Builder withNoOfItemsToMatch(Integer noOfItemsToMatch){
+            this.noOfItemsToMatch=noOfItemsToMatch;
+            return this;
+        }
+
+        public OrderEntity.Builder withAllItemsMatched(Boolean allItemsMatched){
+            this.allItemsMatched=allItemsMatched;
+            return this;
+        }
+
+        @Override
+        public OrderEntity build(){
+            return new OrderEntity(this);
+        }
+    }
+
 }
