@@ -25,9 +25,11 @@ public class OrderTestBuilder extends AbstractTestBuilder<Order> {
                 .withSide(Side.BUY)
                 .withInsertionTimestamp(Instant.now())
                 .withMinMaxValue(Money.builder()
-                .withAmount(BigDecimal.valueOf(500d))
-                .withCurrency(Currency.getInstance("SEK")))
-                .build().build();
+                        .withAmount(BigDecimal.valueOf(500d))
+                        .withCurrency(Currency.getInstance("SEK")).build())
+                .build();
+
+
 
     }
 
