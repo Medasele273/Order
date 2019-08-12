@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="8fe0e9bb-49b4-4e07-a5de-56d6f67141ee" name="Default Changelist" comment="" />
-=======
     <list default="true" id="8fe0e9bb-49b4-4e07-a5de-56d6f67141ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/order-component/order-component-entity/src/main/java/se/lexicon/order/component/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-component/order-component-entity/src/main/java/se/lexicon/order/component/entity/OrderEntity.java" afterDir="false" />
->>>>>>> meda
     </list>
->>>>>>> meda
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +51,28 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="OrderComponentDomainUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="order-component-test-unit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.lexicon.order.component.test.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.lexicon.order.component.test.unit" />
+      <option name="MAIN_CLASS_NAME" value="se.lexicon.order.component.test.unit.OrderComponentDomainUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OrderComponentDomainUnitTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
