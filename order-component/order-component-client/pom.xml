@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.lexicon</groupId>cdc
+            <groupId>com.lexicon</groupId>
             <artifactId>order-component-domain</artifactId>
         </dependency>
         <dependency>

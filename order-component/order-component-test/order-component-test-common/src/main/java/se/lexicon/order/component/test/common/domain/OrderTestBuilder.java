@@ -25,9 +25,11 @@ public class OrderTestBuilder extends AbstractTestBuilder<Order> {
                 .withSide(Side.BUY)
                 .withInsertionTimestamp(Instant.now())
                 .withMinMaxValue(Money.builder()
-                .withAmount(BigDecimal.valueOf(500d))
-                .withCurrency(Currency.getInstance("SEK")))
-                .build().build();
+                        .withAmount(BigDecimal.valueOf(500d))
+                        .withCurrency(Currency.getInstance("SEK")).build())
+                .build();
+
+
 
     }
 
@@ -63,6 +65,15 @@ public class OrderTestBuilder extends AbstractTestBuilder<Order> {
     public OrderTestBuilder withInsertionTimestamp(Instant insertionTimestamp){
         builder.withInsertionTimestamp(insertionTimestamp);
         return this;
+    }
+
+    public OrderTestBuilder withMinMaxValue(Money minMaxValue){
+        builder.withMinMaxValue(minMaxValue);
+        return this;
+    }
+
+    public static OrderTestBuilder builder(){
+        return  new OrderTestBuilder(Order.builder());
     }
 
 
