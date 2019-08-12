@@ -14,7 +14,7 @@ public class OrderComponentClientImpl implements OrderComponentClient {
 
     @Override
     public void placeOrder(Order order) {
-       OrderEntity
+     orderComponentService.placeOrder(order);
 
     }
 }

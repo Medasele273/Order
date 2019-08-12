@@ -65,6 +65,15 @@ public class OrderTestBuilder extends AbstractTestBuilder<Order> {
         return this;
     }
 
+    public OrderTestBuilder withMinMaxValue(Money minMaxValue){
+        builder.withMinMaxValue(minMaxValue);
+        return this;
+    }
+
+    public static OrderTestBuilder builder(){
+        return  new OrderTestBuilder(Order.builder());
+    }
+
 
     @Override
     public Order build() {

@@ -29,6 +29,7 @@ public class OrderEntity extends IdEntity<String> {
 
     private Integer noOfItemsToMatch;
     private Boolean allItemsMatched;
+    private Integer noOfItems;
 
     private OrderEntity(){
 
@@ -44,6 +45,7 @@ public class OrderEntity extends IdEntity<String> {
         this.side= Required.notNull(builder.side,"side",builder.isTemplate());
         this.noOfItemsToMatch= Required.notNull(builder.noOfItemsToMatch,"noOfItemsToMatch",builder.isTemplate());
         this.allItemsMatched= Required.notNull(builder.allItemsMatched,"allItemsMatched",builder.isTemplate());
+        this.noOfItems= Required.notNull(builder.noOfItems,"noOfItems",builder.isTemplate());
 
     }
 
@@ -120,6 +122,14 @@ public class OrderEntity extends IdEntity<String> {
         this.allItemsMatched=allItemsMatched;
     }
 
+    public Integer getNoOfItems(){
+        return noOfItems;
+    }
+
+    private void setNoOfItems(Integer noOfItems){
+        this.noOfItems =noOfItems;
+    }
+
     public static Builder builder(){
         return new Builder(false);
     }
@@ -139,6 +149,7 @@ public class OrderEntity extends IdEntity<String> {
         private Side side;
         private Integer noOfItemsToMatch;
         private Boolean allItemsMatched;
+        private Integer noOfItems;
 
         public Builder(boolean template){
             super(template);
@@ -186,6 +197,11 @@ public class OrderEntity extends IdEntity<String> {
 
         public OrderEntity.Builder withAllItemsMatched(Boolean allItemsMatched){
             this.allItemsMatched=allItemsMatched;
+            return this;
+        }
+
+        public OrderEntity.Builder withNoOfItems(Integer noOfItems){
+            this.noOfItems=noOfItems;
             return this;
         }
 
