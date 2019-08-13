@@ -17,15 +17,26 @@ public class Order extends ValueObject implements Serializable {
     private String id;
 
     private String ssn;
+
     private BigDecimal amount;
+
     private Instant insertionTimestamp;
+
     private String instrument;
+
     private Integer noOfItems;
+
     private Money minMaxValue;
+
     private Side side;
 
+    private OrderPriceType orderPriceType;
+
     @Allowed(types = {Allowed.Type.NULLABLE})
-    private OrderBooks orderBooks;
+    private String  orderBookId;
+
+    @Allowed(types = {Allowed.Type.NULLABLE})
+    private OrderDeals orderDeals;
 
     private Order(){
 
@@ -109,6 +120,8 @@ public class Order extends ValueObject implements Serializable {
         private Money minMaxValue;
 
         private Side side;
+
+        private OrderPriceType orderPriceType;
 
         private OrderBooks orderBooks;
 
