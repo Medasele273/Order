@@ -181,9 +181,6 @@ public class Order extends ValueObject implements Serializable {
             return this;
         }
 
-
-
-
         @Override
         public Order build(){
             return new Order(this);
