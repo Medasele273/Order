@@ -51,7 +51,8 @@ public class Order extends ValueObject implements Serializable {
         this.noOfItems=Required.notNull(builder.noOfItems,"noOfItems");
         this.minMaxValue=Required.notNull(builder.minMaxValue,"minMaxValue");
         this.side=Required.notNull(builder.side,"side");
-        this.orderBooks=builder.orderBooks;
+        this.orderBookId=builder.orderBookId;
+        this.orderPriceType=Required.notNull(builder.orderPriceType,"orderPriceType");
     }
 
 
@@ -89,15 +90,15 @@ public class Order extends ValueObject implements Serializable {
         return side;
     }
 
-    public OrderBooks getOrderBooks(){
-        return orderBooks;
+    public String getOrderBookId(){
+        return orderBookId;
     }
 
 
 
     @Override
     protected Object[] getIdFields() {
-        return new Object[]{id,ssn,amount,insertionTimestamp,instrument,noOfItems,minMaxValue,orderBooks,side};
+        return new Object[]{id,ssn,amount,insertionTimestamp,instrument,noOfItems,minMaxValue,orderPriceType,orderBookId,orderPriceType,side};
     }
 
     public static Builder builder(){
@@ -123,7 +124,7 @@ public class Order extends ValueObject implements Serializable {
 
         private OrderPriceType orderPriceType;
 
-        private OrderBooks orderBooks;
+        private String orderBookId;
 
         private Integer noOfItems;
 
@@ -164,15 +165,23 @@ public class Order extends ValueObject implements Serializable {
             return this;
         }
 
-        public Builder withOrderBooks(OrderBooks orderBooks){
-            this.orderBooks=orderBooks;
-            return this;
-        }
 
         public Builder withInsertionTimestamp(Instant insertionTimestamp){
             this.insertionTimestamp=insertionTimestamp;
             return this;
         }
+
+        public Builder withOrderPriceType(OrderPriceType orderPriceType){
+            this.orderPriceType=orderPriceType;
+            return this;
+        }
+
+        public Builder withOrderBookId(String orderBookId){
+            this.orderBookId=orderBookId;
+            return this;
+        }
+
+
 
 
         @Override
